@@ -1,0 +1,31 @@
+baseURL = "https://go-ruby-uri.github.io/"
+title = "go-ruby-uri"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Parse & components"
+  status = "ready"
+  blurb = "`URI.parse(s)` splitting scheme / userinfo / host / port / path / query / fragment, with the per-scheme generic/HTTP/HTTPS/FTP/LDAP shapes Ruby's URI uses."
+[[params.phases]]
+  name = "Build & merge"
+  status = "ready"
+  blurb = "Constructing a URI from components and `merge` / `+` for relative-reference resolution, following RFC 3986 the way reference Ruby does."
+[[params.phases]]
+  name = "Normalize"
+  status = "ready"
+  blurb = "`normalize` lower-casing the scheme and host, collapsing default ports and dot-segments, matching MRI byte-for-byte."
+[[params.phases]]
+  name = "encode_www_form & escaping"
+  status = "ready"
+  blurb = "Form encoding/decoding and `escape`/`unescape` with Ruby's reserved-character tables."
+[[params.phases]]
+  name = "Error taxonomy"
+  status = "ready"
+  blurb = "The `URI::InvalidURIError` / `URI::InvalidComponentError` / `URI::BadURIError` hierarchy, raised on the same inputs as reference Ruby."
+[[params.phases]]
+  name = "Differential oracle & coverage"
+  status = "ready"
+  blurb = "A wide URI corpus parsed, built and normalized both here and by the system `ruby`/`uri`, compared byte-for-byte; 100% coverage, gofmt + go vet clean, green across all six 64-bit Go arches and three OSes."
